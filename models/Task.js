@@ -4,13 +4,21 @@ const Schema = mongoose.Schema;
 // create task Schema & model
 const TaskSchema = new Schema({
     user: {
-        type:mongoose.Schema.Types.ObjectId, ref:'User',     
+        type:mongoose.Schema.Types.ObjectId, ref:'user',     
     },
-    tasks: [{    
-        name:String,  
-        createdOn: {type:Date},
-        deadline: String
-        }]
+    category:{
+        type:mongoose.Schema.Types.ObjectId, ref:"category",
+    },
+    body:{
+        type:String
+    },
+    createdOn:{
+        type:Date,
+        default:Date.now()
+    },
+    deadline:{
+        type:String
+    }
 });
 
 const Task = mongoose.model('task', TaskSchema);

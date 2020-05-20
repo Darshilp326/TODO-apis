@@ -2,6 +2,10 @@ const User=require('../models/User');
 const bcrypt=require('bcryptjs');
 const jwt=require('jwt-simple');
 const moment=require('moment');
+
+
+// USERS SIGNUP API
+// /signup
 exports.signup=(req,res)=>{
     const {name,email, password} = req.body;
     if ( !name|| !email || !password ) {
@@ -43,6 +47,8 @@ function createJwtToken(user) {
     return jwt.encode(payload, process.env.TOKEN_SECRET);
   }
 
+ // USERS LOGIN API
+ // /login 
 exports.login=(req,res)=>{
     {
         const {email, password, field} = req.body;

@@ -3,24 +3,25 @@ const Schema = mongoose.Schema;
 
 // create task Schema & model
 const TaskSchema = new Schema({
-    user: {
-        type:mongoose.Schema.Types.ObjectId, ref:'user',     
+    created_by: {
+        type:mongoose.Schema.Types.ObjectId, ref:'User',     
     },
     category:{
-        type:mongoose.Schema.Types.ObjectId, ref:"category",
+        type:mongoose.Schema.Types.ObjectId, ref:'Category',
     },
-    body:{
+    name:{
         type:String
     },
-    createdOn:{
+    created_on:{
         type:Date,
-        default:Date.now()
+        default:Date.now // Date.now() and Date.now
     },
+    //date
     deadline:{
-        type:String
+        type:Date
     }
 });
 
-const Task = mongoose.model('task', TaskSchema);
+const Task = mongoose.model('Task', TaskSchema);
 
 module.exports = Task;

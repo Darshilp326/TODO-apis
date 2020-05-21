@@ -3,22 +3,19 @@ const Schema = mongoose.Schema;
 
 // create task Schema & model
 const CategorySchema = new Schema({
-    user:{
+    created_by:{
         type:mongoose.Schema.Types.ObjectId,ref:"user"
     },
     name: {
         type:String     
     },
-    createdOn:{
+    created_on:{
         type:Date,
-        default:Date.now()
+        default:Date.now
 
-    },
-    createdBy:{
-       type:String
     }
 });
 
-const Category = mongoose.model('category', CategorySchema);
+const Category = mongoose.model('Category', CategorySchema);
 
 module.exports = Category;
